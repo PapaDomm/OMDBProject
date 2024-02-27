@@ -1,0 +1,34 @@
+﻿@model MovieModel
+
+<form asp-action="MovieSearch" asp-method="Post">
+    <div class="form-group">
+        <label for="moviename" class="text-center">Enter Movie Title</label>
+        <input type="text" id="moviename" name="moviename" class="form-control col-md-4" value="Star Wars" aria-describedby="moviehelp" /><input type="submit" class="btn btn-primary col-md-4 float-end" />
+        <small id="moviehelp" class="form-text text-muted">Enter the name of a movie to see its details.</small>
+
+        <br/>
+        
+    </div>
+</form>
+@{
+    if(Model != null)
+    {
+        <h1>@Model.Title</h1>
+        <img src="@Model.Poster" alt="Poster for @Model.Title" title="Poster for @Model.Title" />
+        <div>
+            <p>Release Date: @Model.Released</p>
+            <p>Runtime: @Model.Runtime</p>
+            <p>Genres: @Model.Genre</p>
+            <p>Rated: @Model.Rated</p>
+            <p>Director: @Model.Director</p>
+            <p>Writers: @Model.Writer</p>
+            <p>Lead Actors: @Model.Actors</p>
+            <p>Plot:
+            @Model.Plot</p>
+            <p>Awards: @Model.Awards</p>
+            <p>Metascore: @Model.Metascore</p>
+            <p>IMDB Rating: @Model.imdbRating with @Model.imdbVotes votes</p>
+            <p>Box Office Sales: @Model.BoxOffice</p>
+        </div>
+    }
+}
